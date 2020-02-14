@@ -6,4 +6,10 @@
     <AssemblyName>macro</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="macro.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

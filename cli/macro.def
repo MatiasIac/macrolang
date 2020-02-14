@@ -1,0 +1,12 @@
+﻿# macro lang definition
+# * => literal text
+# ? => expression
+
+# interpreter
+driver.exe
+
+# language
+print	MyClass.Print
+	*
+display	MyClass.Print
+	*
