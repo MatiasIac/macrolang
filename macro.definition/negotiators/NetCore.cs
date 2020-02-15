@@ -1,10 +1,9 @@
-﻿using macro.language.negotiators.NetCore;
+﻿using macro.extension;
+using macro.language.negotiators.NetCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using macro.extension;
-using System.Text;
 
 namespace macro.definition.negotiators
 {
@@ -32,14 +31,19 @@ namespace macro.definition.negotiators
             _availableTypes = types;
         }
 
-        public override ExpressionBase Intermediate(string keyword)
+        public override ExpressionBase Intermediate(string keyword, bool isTerminalExpression)
         {
             _availableTypes
                 .ContainsKey(keyword)
                 .ThrowOnFalse(codes.ExceptionCodes.NoExpressionFoundWithName);
 
-            return (ExpressionBase)Activator
+            var expression = (ExpressionBase)Activator
                 .CreateInstance(_availableTypes[keyword]);
+
+            expression.Syntax = keyword;
+            expression.IsTerminal = isTerminalExpression;
+
+            return expression;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace macro.definition.negotiators
 
         public NegotiatorBase GetDefault()
         {
-            var negotiatorName = DefFile.GetNegotiatorName();
+            var negotiatorName = DefParser.GetNegotiatorName();
             
             _defaultNegotiators
                 .ContainsKey(negotiatorName)

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace macro.definition
 {
@@ -8,6 +6,6 @@ namespace macro.definition
     {
         public ExpressionBase Expression { get; set; }
 
-        public IEnumerable<GrammarNode> Children { get; set; }
+        public List<GrammarNode> Children { get; set; }
     }
 }

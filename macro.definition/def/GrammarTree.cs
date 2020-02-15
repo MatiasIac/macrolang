@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace macro.definition
 {
     public class GrammarTree
     {
-        public IEnumerable<GrammarNode> Nodes { get; set; }
+        public List<GrammarNode> Nodes { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using macro.definition;
-using System;
+﻿using System;
 
 namespace cli
 {

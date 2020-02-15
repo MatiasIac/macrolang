@@ -9,29 +9,6 @@ namespace macro.definition
 {
     public sealed class DefFile
     {
-        private const string NEGOTIATOR_PATTERN = "(^> negotiator\t)(.*)";
-        private const string NEGOTIATOR_COMMAND_TEXT = "> negotiator";
-
-        public static string GetNegotiatorName()
-        {
-            var match = Regex
-                .Match(GetDef(),
-                    NEGOTIATOR_PATTERN,
-                    RegexOptions.Multiline);
-
-            if (match.Success)
-            {
-                return match
-                    .Groups
-                    .Values
-                    .FirstOrDefault(v => !v.Value.Contains(NEGOTIATOR_COMMAND_TEXT))
-                    .Value
-                    .Trim();
-            }
-
-            throw new LanguageException(codes.ExceptionCodes.NegotiatorNotPresent);
-        }
-
         public static IEnumerable<string> GetDefLines()
         {
             var defFile = GetDef();
@@ -44,7 +21,7 @@ namespace macro.definition
             }
         }
 
-        private static string GetDef()
+        public static string GetDef()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "macro.def");
             File.Exists(path).ThrowOnFalse(codes.ExceptionCodes.FileNotFound);

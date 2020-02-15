@@ -7,6 +7,4 @@
 > negotiator	NetCore
 
 > lang
-print
-	=>	;
-	==	;
+print	*	;

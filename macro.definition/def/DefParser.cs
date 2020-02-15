@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
+using macro.exceptions;
+using System;
 
 namespace macro.definition
 {
     public sealed class DefParser
     {
+        private const string NEGOTIATOR_PATTERN = "(^> negotiator\t)(.*)";
+        private const string NEGOTIATOR_COMMAND_TEXT = "> negotiator";
         private readonly NegotiatorBase _negotiator;
 
         public DefParser(NegotiatorBase negotiator)
@@ -18,17 +22,72 @@ namespace macro.definition
 
         public GrammarTree Parse()
         {
-            var definition = DefFile.GetDefLines();
-            foreach (var line in definition)
-            {
-                if (line.TrimStart().StartsWith("#")) continue;
+            var file = DefFile.GetDef();
+            var lines = file
+                .Substring(file.IndexOf("> lang") + 6)
+                .Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
+            var grammarTree = new GrammarTree
+            {
+                Nodes = new List<GrammarNode>()
+            };
+
+            foreach (var line in lines)
+            {
+                if (line.Trim().TrimStart().StartsWith("#")) continue;
+                if (string.IsNullOrEmpty(line.Trim())) continue;
+                if (line.Trim().StartsWith('>')) break;
+                
                 var parsedLine = line.Split('\t');
+
+                if (!string.IsNullOrEmpty(parsedLine[0]))
+                {
+                    var isTerminal = parsedLine.Length > 1 ? parsedLine[1].Trim() == ";" : false;
+
+                    grammarTree.Nodes.Add(new GrammarNode
+                    {
+                        Expression = _negotiator.Intermediate(parsedLine[0].Trim(), isTerminal),
+                        Children = new List<GrammarNode>()
+                    });
+                }
+
+                //foreach (var chunk in parsedLine)
+                //{
+                    
+
+                //    if (!string.IsNullOrEmpty(chunk))
+                //    {
+                //        node.
+                //    }
+                //}
             }
 
-            return null;
+            return grammarTree;
+
+            //GrammarNode CreateNode(GrammarNode node, List<string> nodeList)
+            //{
+
+            //}
         }
 
-        
+        public static string GetNegotiatorName()
+        {
+            var match = Regex
+                .Match(DefFile.GetDef(),
+                    NEGOTIATOR_PATTERN,
+                    RegexOptions.Multiline);
+
+            if (match.Success)
+            {
+                return match
+                    .Groups
+                    .Values
+                    .FirstOrDefault(v => !v.Value.Contains(NEGOTIATOR_COMMAND_TEXT))
+                    .Value
+                    .Trim();
+            }
+
+            throw new LanguageException(codes.ExceptionCodes.NegotiatorNotPresent);
+        }
     }
 }

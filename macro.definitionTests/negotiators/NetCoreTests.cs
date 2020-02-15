@@ -12,8 +12,7 @@ namespace macro.definition.negotiators.Tests
         [TestMethod()]
         public void NetCoreIntermediate_When_Instantiate_Expect_AllCommandsAvailable()
         {
-            var result = new NetCore()
-                .Intermediate("print");
+            var result = new NetCore().Intermediate("print", false);
 
             Assert.IsNotNull(result);
         }
