@@ -1,7 +1,5 @@
 ﻿using macro.extension;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace macro.definition.negotiators
 {

@@ -3,6 +3,7 @@
 # ? => expression
 # ; => end tree
 
+# NetCore requires Macro.NetCore.Package.dll 
 > negotiator	NetCore
 
 > lang

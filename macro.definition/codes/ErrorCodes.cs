@@ -7,7 +7,8 @@ namespace macro.codes
         ParsingError = 0x1,
         FileNotFound = 0x50,
         NegotiatorNotPresent = 0x80,
-        NoDefaultNegotiatorFound = 0x81
+        NoDefaultNegotiatorFound = 0x81,
+        NoExpressionFoundWithName = 0x82
     }
 
     public static class ErrorCodes
@@ -17,7 +18,8 @@ namespace macro.codes
             { ExceptionCodes.FileNotFound, "File not found" },
             { ExceptionCodes.ParsingError, "Parsing error" },
             { ExceptionCodes.NegotiatorNotPresent, "Negotiator not found in definition file" },
-            { ExceptionCodes.NoDefaultNegotiatorFound, "The selected negotiator is not a default one" }
+            { ExceptionCodes.NoDefaultNegotiatorFound, "The selected negotiator is not a default one" },
+            { ExceptionCodes.NoExpressionFoundWithName, "The expression {0} was not found by the analyzer" }
         };
 
         public static string GetText(this ExceptionCodes code)

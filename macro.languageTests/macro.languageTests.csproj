@@ -17,10 +17,4 @@
     <ProjectReference Include="..\macro.definition\macro.language.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="macro.def">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
