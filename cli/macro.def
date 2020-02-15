@@ -1,12 +1,19 @@
 ﻿# macro lang definition
 # * => literal text
 # ? => expression
+# ; => end tree
+
+> ref
+print	MyClass.Print
+
+> lang
+print
+	=>	;
+	==	;
 
 # interpreter
-driver.exe
+# driver.exe
 
-# language
-print	MyClass.Print
-	*
-display	MyClass.Print
-	*
+# phrases
+# print	*
+# display	*

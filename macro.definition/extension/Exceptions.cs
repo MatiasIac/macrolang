@@ -1,7 +1,7 @@
-﻿using macro.command.lang_codes;
-using macro.command.lang_exceptions;
+﻿using macro.lang_codes;
+using macro.lang_exceptions;
 
-namespace macro.command.extension
+namespace macro.extension
 {
     internal static class Exceptions
     {

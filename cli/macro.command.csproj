@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\macro.definition\macro.definition.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="macro.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

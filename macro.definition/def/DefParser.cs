@@ -1,18 +1,18 @@
-﻿using macro.command.extension;
-using System;
+﻿using macro.extension;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
-namespace macro.command.def
+namespace macro.def
 {
-    internal static class DefinitionReader
+    public static class DefParser
     {
-        public static string Parse()
+        public static GrammarTree Parse()
         {
             var definition = GetDef();
             foreach (var line in definition)
             {
+                if (line.TrimStart().StartsWith("#")) continue;
+
                 var parsedLine = line.Split('\t');
             }
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace macro.command.lang_codes
+namespace macro.lang_codes
 {
 
     public static class ErrorCodes

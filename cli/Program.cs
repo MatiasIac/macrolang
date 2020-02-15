@@ -1,4 +1,4 @@
-﻿using macro.command.def;
+﻿using macro.def;
 using System;
 
 namespace cli
@@ -8,8 +8,7 @@ namespace cli
         static void Main()
         {
             Console.WriteLine("Parsing definition");
-            
-            DefinitionReader.Parse();
+            _ = DefParser.Parse();
 
 
             Console.ReadLine();

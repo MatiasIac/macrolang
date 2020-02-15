@@ -1,7 +1,7 @@
-﻿using macro.command.lang_codes;
+﻿using macro.lang_codes;
 using System;
 
-namespace macro.command.lang_exceptions
+namespace macro.lang_exceptions
 {
     public class LanguageException : Exception
     {
