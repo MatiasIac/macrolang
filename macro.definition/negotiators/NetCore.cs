@@ -31,7 +31,7 @@ namespace macro.definition.negotiators
             _availableTypes = types;
         }
 
-        public override ExpressionBase Intermediate(string keyword, bool isTerminalExpression)
+        public override ExpressionBase Intermediate(string keyword)
         {
             _availableTypes
                 .ContainsKey(keyword)
@@ -41,7 +41,6 @@ namespace macro.definition.negotiators
                 .CreateInstance(_availableTypes[keyword]);
 
             expression.Syntax = keyword;
-            expression.IsTerminal = isTerminalExpression;
 
             return expression;
         }

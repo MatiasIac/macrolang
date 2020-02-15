@@ -38,36 +38,34 @@ namespace macro.definition
                 if (string.IsNullOrEmpty(line.Trim())) continue;
                 if (line.Trim().StartsWith('>')) break;
                 
-                var parsedLine = line.Split('\t');
+                var splitedLine = line.Split('\t');
+                var nodes = grammarTree.Nodes;
 
-                if (!string.IsNullOrEmpty(parsedLine[0]))
-                {
-                    var isTerminal = parsedLine.Length > 1 ? parsedLine[1].Trim() == ";" : false;
-
-                    grammarTree.Nodes.Add(new GrammarNode
-                    {
-                        Expression = _negotiator.Intermediate(parsedLine[0].Trim(), isTerminal),
-                        Children = new List<GrammarNode>()
-                    });
-                }
-
-                //foreach (var chunk in parsedLine)
-                //{
-                    
-
-                //    if (!string.IsNullOrEmpty(chunk))
-                //    {
-                //        node.
-                //    }
-                //}
+                CreateTree(nodes, splitedLine, 0);
             }
 
             return grammarTree;
 
-            //GrammarNode CreateNode(GrammarNode node, List<string> nodeList)
-            //{
+            void CreateTree(List<GrammarNode> nodes, string[] splitedLine, int index)
+            {
+                var node = nodes.FirstOrDefault(n => n.Expression.Syntax == splitedLine[index].Trim());
 
-            //}
+                if (node == null)
+                {
+                    node = new GrammarNode
+                    {
+                        Children = new List<GrammarNode>(),
+                        Expression = _negotiator.Intermediate(splitedLine[index].Trim())
+                    };
+
+                    nodes.Add(node);
+                }
+
+                if (splitedLine.Length > index + 1)
+                {
+                    CreateTree(node.Children, splitedLine, ++index);
+                }
+            }
         }
 
         public static string GetNegotiatorName()
