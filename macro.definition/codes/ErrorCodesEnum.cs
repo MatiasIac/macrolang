@@ -1,4 +1,4 @@
-﻿namespace macro.lang_codes
+﻿namespace macro.codes
 {
     public enum ExceptionCodes : int
     {

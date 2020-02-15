@@ -1,7 +1,7 @@
-﻿using macro.lang_codes;
+﻿using macro.codes;
 using System;
 
-namespace macro.lang_exceptions
+namespace macro.exceptions
 {
     public class LanguageException : Exception
     {
@@ -9,7 +9,7 @@ namespace macro.lang_exceptions
 
         public string ErrorMessage { get; set; }
 
-        public LanguageException(lang_codes.ExceptionCodes code)
+        public LanguageException(ExceptionCodes code)
         {
             CodeNumber = (int)code;
             ErrorMessage = code.GetText();

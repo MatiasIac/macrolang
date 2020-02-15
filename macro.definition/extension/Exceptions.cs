@@ -1,5 +1,5 @@
-﻿using macro.lang_codes;
-using macro.lang_exceptions;
+﻿using macro.codes;
+using macro.exceptions;
 
 namespace macro.extension
 {

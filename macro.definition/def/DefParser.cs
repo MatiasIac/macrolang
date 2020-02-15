@@ -1,14 +1,24 @@
-﻿using macro.extension;
+﻿using macro.definition.negotiators;
+using macro.extension;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Linq;
 
-namespace macro.def
+namespace macro.definition
 {
-    public static class DefParser
+    public sealed class DefParser
     {
-        public static GrammarTree Parse()
+        private readonly NegotiatorBase _negotiator;
+
+        public DefParser(NegotiatorBase negotiator)
         {
-            var definition = GetDef();
+            _negotiator = negotiator;
+        }
+
+        public GrammarTree Parse()
+        {
+            var definition = DefFile.GetDefLines();
             foreach (var line in definition)
             {
                 if (line.TrimStart().StartsWith("#")) continue;
@@ -19,21 +29,6 @@ namespace macro.def
             return null;
         }
 
-        private static IEnumerable<string> GetDef()
-        {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "macro.def");
-            File.Exists(path).ThrowOnFalse(lang_codes.ExceptionCodes.FileNotFound);
-
-            //TODO: Add better handling
-            var defFile = File.ReadAllText(path);
-
-            var defFileLines = defFile.Split('\n');
-            var linesLength = defFileLines.Length;
-
-            for (int i = 0; i < linesLength; i++)
-            {
-                yield return defFileLines[i];
-            }
-        }
+        
     }
 }

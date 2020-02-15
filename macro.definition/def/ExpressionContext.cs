@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace macro.def
+﻿namespace macro.definition
 {
-    internal class ExpressionContext
+    public class ExpressionContext
     {
     }
 }

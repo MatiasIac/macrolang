@@ -1,6 +1,6 @@
-﻿namespace macro.def
+﻿namespace macro.definition
 {
-    internal abstract class ExpressionBase
+    public abstract class ExpressionBase
     {
         public string Syntax { get; set; }
         public string Handler { get; set; }

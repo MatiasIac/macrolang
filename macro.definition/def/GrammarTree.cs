@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace macro.def
+namespace macro.definition
 {
     public class GrammarTree
     {

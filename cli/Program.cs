@@ -8,7 +8,7 @@ namespace cli
         static void Main()
         {
             Console.WriteLine("Parsing definition");
-            _ = DefParser.Parse();
+            //_ = DefParser.Parse();
 
 
             Console.ReadLine();
