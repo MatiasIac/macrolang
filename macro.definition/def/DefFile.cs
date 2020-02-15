@@ -1,4 +1,5 @@
-﻿using macro.extension;
+﻿using macro.exceptions;
+using macro.extension;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace macro.definition
                     .Trim();
             }
 
-            return null;
+            throw new LanguageException(codes.ExceptionCodes.NegotiatorNotPresent);
         }
 
         public static IEnumerable<string> GetDefLines()
