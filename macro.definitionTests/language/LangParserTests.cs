@@ -14,5 +14,13 @@ namespace macro.definition.language.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void LangParser_ExecuteCode_Expect_Results()
+        {
+            var lang = new LangParser();
+
+            lang.Execute("print \"hola mundo\"");
+        }
     }
 }

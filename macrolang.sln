@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "macro.command", "cli\macro.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "macro.language", "macro.definition\macro.language.csproj", "{F05B4375-E00E-4CBD-8C3F-F04979C76FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macro.definitionTests", "macro.definitionTests\macro.definitionTests.csproj", "{70F2F9AB-63C3-466C-9346-23DA05E320F6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macro.NetCore.Package", "Macro.NetCore.Package\Macro.NetCore.Package.csproj", "{1C6B6CA8-633F-496B-A077-A61C3F98207A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "macro.definitionTests", "macro.definitionTests\macro.definitionTests.csproj", "{70F2F9AB-63C3-466C-9346-23DA05E320F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{70F2F9AB-63C3-466C-9346-23DA05E320F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70F2F9AB-63C3-466C-9346-23DA05E320F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70F2F9AB-63C3-466C-9346-23DA05E320F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C6B6CA8-633F-496B-A077-A61C3F98207A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C6B6CA8-633F-496B-A077-A61C3F98207A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C6B6CA8-633F-496B-A077-A61C3F98207A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C6B6CA8-633F-496B-A077-A61C3F98207A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

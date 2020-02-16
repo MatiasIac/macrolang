@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "macro.command": {
+      "commandName": "Project"
+    }
+  }
+}

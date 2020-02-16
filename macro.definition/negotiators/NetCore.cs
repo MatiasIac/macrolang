@@ -16,12 +16,11 @@ namespace macro.definition.negotiators
         public NetCore()
         {
             AppDomain currentDomain = AppDomain.CurrentDomain;
-            currentDomain.Load(NETCORE_ASSEMBLY);
+            //currentDomain.Load(NETCORE_ASSEMBLY);
 
-            var types = currentDomain
-                .GetAssemblies()
-                .Where(a => a.FullName.StartsWith("Macro.NetCore.Package"))
-                .SelectMany(a => a.GetTypes())
+            var types = Assembly.GetExecutingAssembly().GetTypes()
+                //.Where(a => a.FullName.StartsWith("Macro.NetCore.Package"))
+                //.SelectMany(a => a.GetTypes())
                 .Where(t => 
                     t.GetCustomAttributes(typeof(CommandAttribute)).Count() > 0 &&
                     t.IsClass && t.IsSubclassOf(typeof(ExpressionBase)))

@@ -22,8 +22,6 @@ namespace macro.def.Tests
         {
             var parser = new DefParser(new NegotiatorService().GetDefault());
             var _ = parser.Parse();
-
-
         }
     }
 }

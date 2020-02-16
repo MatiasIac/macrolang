@@ -4,12 +4,12 @@ using System;
 
 namespace Macro.NetCore.Package
 {
-    [Command("print")]
-    public class PrintCommand : ExpressionBase
+    [Command("=>")]
+    public class ArrowCommand : ExpressionBase
     {
         public override void Interpret(ExpressionContext context)
         {
-            context.Data = new ExpressionIntermediator { HandleExpression = (s) => Console.WriteLine(s) };
+            throw new NotImplementedException();
         }
     }
 }
