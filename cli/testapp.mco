@@ -1,1 +1,2 @@
 ﻿print "hola mundo"
+is_number {10, i}

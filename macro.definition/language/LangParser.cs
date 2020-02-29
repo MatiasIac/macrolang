@@ -47,11 +47,19 @@ namespace macro.definition.language
                 
                 if (line.StartsWith('\"'))
                 {
+                    //test for literal
                     node = nodes.FirstOrDefault(n => n.Expression.Syntax == "*");
                     currentExpression = line.Substring(0, line.ToFinalQuote(1) + 1);
                 }
+                else if (line.StartsWith('{'))
+                {
+                    //test for expression
+                    node = nodes.FirstOrDefault(n => n.Expression.Syntax == "?");
+                    currentExpression = line.Substring(0, line.GetIndexFor(1, '}') + 1);
+                }
                 else
                 {
+                    //any other defined syntax
                     node = nodes.FirstOrDefault(n => line.IndexOf(n.Expression.Syntax) >= 0);
                     currentExpression = node.Expression.Syntax;
                 }

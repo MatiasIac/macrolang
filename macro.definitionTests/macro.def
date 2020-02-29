@@ -7,3 +7,5 @@
 
 > lang
 print	*
+print	?
+is_number	?

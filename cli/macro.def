@@ -1,9 +1,11 @@
 ﻿# macro lang definition
 # * => literal text
-# ? => expression
+# ? => expression (must be enclosed with {})
 
 # NetCore requires Macro.NetCore.Package.dll 
 > negotiator	NetCore
 
 > lang
 print	*
+print	?
+is_number	?

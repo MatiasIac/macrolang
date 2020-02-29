@@ -22,5 +22,13 @@ namespace macro.definition.language.Tests
 
             lang.Execute("print \"hola mundo\"");
         }
+
+        [TestMethod()]
+        public void LangParser_ExecuteCodeWithExpression_Expect_Results()
+        {
+            var lang = new LangParser();
+
+            lang.Execute("print {1}");
+        }
     }
 }
